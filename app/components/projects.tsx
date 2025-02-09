@@ -1,48 +1,7 @@
 import type React from "react";
+import { projects, ProjectI } from "../constants/projects";
 
-type Project = {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  liveUrl?: string;
-  repoUrl?: string;
-};
-
-// insira os dados de projetos que voce possui aqui.
-const projects: Project[] = [
-  {
-    id: "1",
-    title: "Portfólio", // titulo do seu projeto.
-    description:
-      "Projeto pessoal e template open-source, utilizando Remix e TailwindCSS.", // breve descricao do seu projeto
-    imageUrl: "/assests/portfolioImage.png", // imagem de banner do seu projeto, recomendo que coloque na pasta /assets/ na pasta public
-    liveUrl: "https://portfolio-pinuya.vercel.app/", // link do seu site deployado (se n houver pode deletar a linha)
-    repoUrl: "https://github.com/pinuya/portfolio-template", // link do seu rep
-  },
-  {
-    id: "2",
-    title: "Sylvanian Families Store",
-    description:
-      "Projeto em desenvolvimento, uma lojinha de e-commerce de Sylvanian Families.",
-
-    imageUrl: "/assests/sylvanianStore.png",
-    liveUrl: "https://github.com/pinuya",
-    repoUrl: "https://github.com/pinuya",
-  },
-  {
-    id: "3",
-    title: "TicTacToe",
-    description:
-      "Projeto que refatorei recentemente de um jogo da velha para jogar com amigos.",
-
-    imageUrl: "/assests/ticTacToe.png",
-    liveUrl: "https://pinuya.github.io/tic-tac-toe/",
-    repoUrl: "https://github.com/pinuya/tic-tac-toe",
-  },
-];
-
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectCard: React.FC<{ project: ProjectI }> = ({ project }) => {
   return (
     <div className="bg-gray-800/50 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
       <img
@@ -88,8 +47,8 @@ export const Projects: React.FC = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {projects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
       </div>

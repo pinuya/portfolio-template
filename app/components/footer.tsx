@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
-import { FaHeart, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa";
+import { socialNetworks } from "../constants/social-networks";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -14,22 +14,18 @@ export function Footer() {
 
       {/* suas redes sociais */}
       <div className="flex gap-4">
-        <Link
-          to="https://x.com/pinuyami"
-          target="_blank"
-          className="hover:text-purple-500 transition-colors"
-        >
-          <FaXTwitter size={20} />
-        </Link>
 
-        <Link
-          to="https://www.linkedin.com/in/tifanyanunes/"
-          target="_blank"
-          className="hover:text-purple-500 transition-colors"
-        >
-          <FaLinkedin size={20} />
-        </Link>
+        {socialNetworks.map((({ url: socialMediaUrl, icon: SocialMediaIcon }) => (
+          <Link
+            to={socialMediaUrl}
+            target="_blank"
+            className="hover:text-purple-500 transition-colors"
+          >
+            <SocialMediaIcon size={20} />
+          </Link>
+
+        )))}
       </div>
-    </div>
+    </div >
   );
 }
