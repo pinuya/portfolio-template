@@ -9,13 +9,24 @@ export interface ProjectI {
 
 // insira os dados de projetos que voce possui aqui.
 export const projects: ProjectI[] = [
+    // template para projetos 
+    // {
+    //     title: "Portfólio", // titulo do seu projeto.
+    //     description:
+    //         "Projeto pessoal e template open-source, utilizando Remix e TailwindCSS.", // breve descricao do seu projeto
+    //     imageUrl: "/assests/portfolioImage.png", // imagem de banner do seu projeto, recomendo que coloque na pasta /assets/ na pasta public
+    //     liveUrl: "https://portfolio-pinuya.vercel.app/", // link do seu site deployado (se n houver pode deletar a linha)
+    //     repoUrl: "https://github.com/pinuya/portfolio-template", // link do seu rep
+    // },
+
+
     {
-        title: "Portfólio", // titulo do seu projeto.
+        title: "Portfólio",
         description:
-            "Projeto pessoal e template open-source, utilizando Remix e TailwindCSS.", // breve descricao do seu projeto
-        imageUrl: "/assests/portfolioImage.png", // imagem de banner do seu projeto, recomendo que coloque na pasta /assets/ na pasta public
-        liveUrl: "https://portfolio-pinuya.vercel.app/", // link do seu site deployado (se n houver pode deletar a linha)
-        repoUrl: "https://github.com/pinuya/portfolio-template", // link do seu rep
+            "Projeto pessoal e template open-source, utilizando Remix e TailwindCSS.",
+        imageUrl: "/assests/portfolioImage.png",
+        liveUrl: "https://portfolio-pinuya.vercel.app/",
+        repoUrl: "https://github.com/pinuya/portfolio-template",
     },
     {
         title: "Sylvanian Families Store",

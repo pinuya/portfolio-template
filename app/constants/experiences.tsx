@@ -1,5 +1,14 @@
 // insira seus dados de experiencia aqui, caso nao tenha basta comentar o componente no arquivo _index.tsx ou excluir esse componente
 export const experiences = [
+  // template para experiencias
+  // {
+  //   company: "Hubfy",
+  //   period: "Out 2024 - Presente",
+  //   role: "Front-End Engineer",
+  //   description:
+  //     "Desenvolvendo Front-End com Tailwind, React em uma aplicação Next.js.",
+  // },
+
   {
     company: "Hubfy",
     period: "Out 2024 - Presente",

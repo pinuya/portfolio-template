@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { FaGithub } from "react-icons/fa";
+import { aboutMe } from "../constants/about";
 
 const menuItems = [
   { name: "Home", href: "/" },
@@ -8,6 +8,8 @@ const menuItems = [
 ];
 
 export function Nav() {
+  const GithubIcon = aboutMe.github.icon
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -24,8 +26,8 @@ export function Nav() {
           ))}
         </ul>
 
-        <Link to={"https://github.com/pinuya"}>
-          <FaGithub className="cursor-pointer hover:text-purple-500 h-5 w-5 hidden sm:block" />
+        <Link to={aboutMe.github.url}>
+          <GithubIcon className="cursor-pointer hover:text-purple-500 h-5 w-5 hidden sm:block" />
         </Link>
       </nav>
     </header>

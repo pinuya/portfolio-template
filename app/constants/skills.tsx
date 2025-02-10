@@ -37,6 +37,21 @@ interface SkillsI {
 
 
 export const skills: SkillsI[] = [
+    // template para skills 
+    // {
+    //     title: "Frontend",
+    //     skills: [
+    //         { name: "HTML", icon: Html },
+    //         { name: "CSS", icon: CssIcon },
+    //         { name: "JavaScript", icon: Javascript },
+    //         { name: "React", icon: ReactIcon },
+    //         { name: "Next.js", icon: NextJs },
+    //         { name: "Remix", icon: Remix },
+    //         { name: "Tailwind CSS", icon: Tailwind },
+    //     ],
+    // },
+
+
     {
         title: "Frontend",
         skills: [

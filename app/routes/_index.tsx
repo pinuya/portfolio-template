@@ -4,6 +4,9 @@ import Experience from "~/components/experience";
 import Projects from "~/components/projects";
 import Skills from "~/components/skills";
 
+import { aboutMe } from "../constants/about";
+
+
 export const meta: MetaFunction = () => {
   return [
     { title: "Portfolio" }, // coloque seu nome se quiser
@@ -41,7 +44,7 @@ export default function Index() {
                 <h1 className="text-4xl">
                   I'm{" "}
                   <span className="font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-                    Tifany.
+                    {aboutMe.name}.
                   </span>
                 </h1>
               </motion.div>
@@ -49,7 +52,7 @@ export default function Index() {
               <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
                 {/* insira suas informacoes aqui */}
                 <span className="text-gray-400">
-                  Web Designer | Front-End Developer
+                  {aboutMe.profession}
                 </span>
                 <p className="text-gray-400 w-96 mt-4">
                   Uma <b>Software Engineer</b> com foco no <b>Front-End</b>.

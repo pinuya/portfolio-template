@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import { FaHeart } from "react-icons/fa";
-import { socialNetworks } from "../constants/social-networks";
+import { aboutMe } from "../constants/about";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -15,7 +15,7 @@ export function Footer() {
       {/* suas redes sociais */}
       <div className="flex gap-4">
 
-        {socialNetworks.map((({ url: socialMediaUrl, icon: SocialMediaIcon }) => (
+        {aboutMe.socialNetworks.map((({ url: socialMediaUrl, icon: SocialMediaIcon }) => (
           <Link
             to={socialMediaUrl}
             target="_blank"
