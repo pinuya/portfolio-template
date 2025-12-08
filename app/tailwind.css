@@ -37,7 +37,7 @@
     --sidebar-border: 223.8136 0.0001% 89.8161%;
     --sidebar-ring: 223.8136 0% 63.0163%;
     --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
-    --font-libre-baskerville: Libre Baskerville, ui-serif, serif;
+    --font-libre: "Libre Baskerville", ui-sans-serif, sans-serif, system-ui;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       "Liberation Mono", "Courier New", monospace;
     --radius: 0.625rem;
