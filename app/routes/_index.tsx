@@ -4,6 +4,8 @@ import Typewriter from "components/fancy/text/typewriter";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Footer } from "~/components/footer";
 import { motion } from "framer-motion";
+import { Fragment } from "react/jsx-runtime";
+import { HeartDetail } from "~/components/heart-detail";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,6 +24,11 @@ const experiences = [
     role: "Front-End Developer Jr.",
     description:
       "Atuo como desenvolvedora Front-End utilizando React. Atualmente, estou alocada no time do Mais Taúá, trabalhando no desenvolvimento e na refatoração da aplicação do novo sistema.",
+    points: [
+      "Desenvolvedora Front-End, React",
+      "Time do Mais Taúá",
+      "Refatoração de aplicação",
+    ],
   },
   {
     company: "Hubfy",
@@ -29,6 +36,10 @@ const experiences = [
     role: "Front-End Developer Jr.",
     description:
       "Desenvolvi interfaces dinâmicas e responsivas, sendo responsável pelo front-end do novo sistema da Hubfy. Apliquei meus conhecimentos em Tailwind, React e Next.js para tornar a nova aplicação moderna, interativa e adaptável a diferentes dispositivos.",
+    points: [
+      "Desenvolvedora Front-End, React e Next.js",
+      "Criação de interfaces responsivas",
+    ],
   },
 ];
 
@@ -76,7 +87,9 @@ export default function Index() {
       >
         <div className="absolute h-[500px] w-[500px] rounded-full bg-primary blur-3xl"></div>
         <div className="relative z-10 mx-auto max-w-4xl px-4">
-          <span className="mb-4 block text-2xl font-libre">Pinuya</span>
+          <span className="mb-4 block text-2xl font-libre text-gray-700">
+            Pinuya
+          </span>
           <Typewriter
             text={["Web Designer", "Full-stack Developer", "UX/UI Enthusiast"]}
             speed={70}
@@ -87,6 +100,8 @@ export default function Index() {
           />
         </div>
       </section>
+
+      <HeartDetail />
 
       <section
         id="about"
@@ -182,43 +197,67 @@ export default function Index() {
         </motion.div>
       </section>
 
-      <section id="experience" className="mx-auto max-w-4xl px-4 py-16">
-        <div className="grid gap-8">
+      <section id="experience" className="mx-auto max-w-3xl px-4 py-16">
+        <motion.h1
+          className="font-libre text-2xl mb-4 text-gray-700"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          Resume
+        </motion.h1>
+        <motion.div
+          className="space-y-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl bg-gradient-to-br from-white to-gray-50 p-8 shadow-lg transition-all hover:shadow-xl hover:-translate-y-1"
-            >
-              <div className="absolute -left-2 top-1/2 h-3/4 w-1 -translate-y-1/2 rounded-full bg-accent group-hover:h-4/5 transition-all"></div>
-
-              <div className="flex flex-col md:flex-row md:items-start gap-4">
-                <div className="flex-1">
-                  <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-4">
-                    <h2 className="text-2xl font-bold text-gray-900">
-                      {exp.company}
-                    </h2>
-                    <span className="inline-block rounded-full bg-accent/10 px-4 py-1 text-sm font-medium text-accent">
+            <Fragment key={index}>
+              <motion.div variants={itemVariants} className="text-left">
+                <div>
+                  <div className="mb-2 space-y-2">
+                    <span className="text-sm font-medium text-primary">
                       {exp.period}
                     </span>
+                    <h2 className="text-xl font-bold text-gray-900 mt-1">
+                      {exp.company}
+                    </h2>
+                    <h3 className="text-sm font-semibold text-gray-700">
+                      {exp.role}
+                    </h3>
+                    <p className="text-sm text-gray-700">{exp.description}</p>
                   </div>
 
-                  <h3 className="mb-4 text-xl font-semibold text-gray-700">
-                    {exp.role}
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <ul className="space-y-2 mt-3">
+                    {exp.points.map((point, pointIndex) => (
+                      <motion.li
+                        key={pointIndex}
+                        className="flex items-start gap-2 text-gray-600 text-sm"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: pointIndex * 0.1 }}
+                      >
+                        <span className="text-primary mt-1.5 flex-shrink-0">
+                          •
+                        </span>
+                        <span>{point}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
+              </motion.div>
 
-                <div className="flex-shrink-0">
-                  <div className="h-2 w-12 rounded-full bg-gray-200 md:w-2 md:h-12"></div>
-                </div>
-              </div>
-            </div>
+              {index < experiences.length - 1 && <HeartDetail />}
+            </Fragment>
           ))}
-        </div>
+        </motion.div>
       </section>
+
+      <HeartDetail />
 
       <Footer />
     </div>

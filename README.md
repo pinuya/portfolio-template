@@ -3,11 +3,10 @@
 </p>
 <h1 align="center">Portfolio Template</h1>
 
-[![Site preview](/public/assets/portfolioImage.png)](https://portfolio-pinuya.vercel.app/)
+[![Site preview](/public/ReadmeImage.png)](https://portfolio-pinuya.vercel.app/)
 Meu template de portfolio para voces. Construido com [Remix](https://remix.run/), [TailwindCSS](https://tailwindcss.com/) [Framer Motion](https://www.framer.com/motion/). [Veja o site deployado](https://portfolio-pinuya.vercel.app/).
 
 O intuito deste projeto é ajudar programadores que ainda não possuem um portfólio. Por isso, construí de forma simples, especialmente para quem está iniciando com HTML e React, para que consiga entender o funcionamento do projeto.
-Tentei simplificar ao máximo e deixei o código todo comentado para facilitar o entendimento.
 Caso você utilize este projeto como seu portfólio, peço que leia atentamente este arquivo README.
 
 ## Como Fazer um Fork deste Repositório

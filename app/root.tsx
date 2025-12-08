@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="py-4 font-dmSans">
-        <Nav />
+        {/* <Nav /> */}
         {children}
         <ScrollRestoration />
         <Scripts />
