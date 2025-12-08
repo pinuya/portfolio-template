@@ -6,9 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-
 import "./tailwind.css";
-import MouseMoveEffect from "./components/mouse-move-effect";
 import Nav from "./components/nav";
 
 export const links: LinksFunction = () => [
@@ -20,7 +18,7 @@ export const links: LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap",
   },
 ];
 
@@ -36,7 +34,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body className="py-4 font-dmSans">
         <Nav />
         {children}
-        <MouseMoveEffect />
         <ScrollRestoration />
         <Scripts />
       </body>
