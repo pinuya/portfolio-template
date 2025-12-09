@@ -1,11 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import Typewriter from "components/fancy/text/typewriter";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { Footer } from "~/components/footer";
 import { motion } from "framer-motion";
 import { Fragment } from "react/jsx-runtime";
 import { HeartDetail } from "~/components/heart-detail";
+import Typewriter from "~/components/fancy/text/typewriter";
 
 export const meta: MetaFunction = () => {
   return [
@@ -87,13 +87,13 @@ export default function Index() {
       >
         <div className="absolute h-[500px] w-[500px] rounded-full bg-primary blur-3xl"></div>
         <div className="relative z-10 mx-auto max-w-4xl px-4">
-          <span className="mb-4 block text-2xl font-libre text-gray-700">
+          <span className="mb-4 block font-libre text-2xl text-gray-700">
             Pinuya
           </span>
           <Typewriter
             text={["Web Designer", "Full-stack Developer", "UX/UI Enthusiast"]}
             speed={70}
-            className="text-accent font-libre-baskerville text-5xl md:text-7xl font-bold"
+            className="font-libre-baskerville text-5xl font-bold text-accent md:text-7xl"
             waitTime={1500}
             deleteSpeed={40}
             cursorChar={"_"}
@@ -105,7 +105,7 @@ export default function Index() {
 
       <section
         id="about"
-        className="mx-auto max-w-6xl px-4 py-16 overflow-hidden"
+        className="mx-auto max-w-6xl overflow-hidden px-4 py-16"
       >
         <motion.div
           className="flex flex-col items-center gap-12 md:flex-row md:items-start"
@@ -116,7 +116,7 @@ export default function Index() {
         >
           <div className="flex-1 text-left">
             <motion.p
-              className="text-lg leading-relaxed mb-6"
+              className="mb-6 text-lg leading-relaxed"
               variants={itemVariants}
             >
               Oi, eu sou a Pinuya, uma{" "}
@@ -134,7 +134,7 @@ export default function Index() {
             </motion.p>
 
             <motion.p
-              className="text-lg leading-relaxed mb-6"
+              className="mb-6 text-lg leading-relaxed"
               variants={itemVariants}
             >
               Além de minhas habilidades técnicas, sou uma comunicadora eficaz e
@@ -144,7 +144,7 @@ export default function Index() {
             </motion.p>
 
             <motion.p
-              className="text-lg leading-relaxed mb-0"
+              className="mb-0 text-lg leading-relaxed"
               variants={itemVariants}
             >
               Quando não estou programando, você pode me encontrar explorando
@@ -174,7 +174,7 @@ export default function Index() {
                 <Link
                   to="https://linkedin.com"
                   target="_blank"
-                  className="text-3xl text-primary hover:text-blue-700 transition-colors block"
+                  className="block text-3xl text-primary transition-colors hover:text-blue-700"
                 >
                   <FaLinkedin />
                 </Link>
@@ -187,7 +187,7 @@ export default function Index() {
                 <Link
                   to="https://github.com"
                   target="_blank"
-                  className="text-3xl text-primary hover:text-gray-900 transition-colors block"
+                  className="block text-3xl text-primary transition-colors hover:text-gray-900"
                 >
                   <FaGithub />
                 </Link>
@@ -199,7 +199,7 @@ export default function Index() {
 
       <section id="experience" className="mx-auto max-w-3xl px-4 py-16">
         <motion.h1
-          className="font-libre text-2xl mb-4 text-gray-700"
+          className="mb-4 font-libre text-2xl text-gray-700"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -222,7 +222,7 @@ export default function Index() {
                     <span className="text-sm font-medium text-primary">
                       {exp.period}
                     </span>
-                    <h2 className="text-xl font-bold text-gray-900 mt-1">
+                    <h2 className="mt-1 text-xl font-bold text-gray-900">
                       {exp.company}
                     </h2>
                     <h3 className="text-sm font-semibold text-gray-700">
@@ -231,17 +231,17 @@ export default function Index() {
                     <p className="text-sm text-gray-700">{exp.description}</p>
                   </div>
 
-                  <ul className="space-y-2 mt-3">
+                  <ul className="mt-3 space-y-2">
                     {exp.points.map((point, pointIndex) => (
                       <motion.li
                         key={pointIndex}
-                        className="flex items-start gap-2 text-gray-600 text-sm"
+                        className="flex items-start gap-2 text-sm text-gray-600"
                         initial={{ opacity: 0, x: -10 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: pointIndex * 0.1 }}
                       >
-                        <span className="text-primary mt-1.5 flex-shrink-0">
+                        <span className="mt-1.5 flex-shrink-0 text-primary">
                           •
                         </span>
                         <span>{point}</span>
