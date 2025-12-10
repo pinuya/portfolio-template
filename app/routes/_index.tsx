@@ -1,11 +1,16 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react";
+import { Form, Link } from "@remix-run/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { Footer } from "~/components/footer";
 import { motion } from "framer-motion";
 import { Fragment } from "react/jsx-runtime";
 import { HeartDetail } from "~/components/heart-detail";
+import { useTranslation } from "react-i18next";
 import Typewriter from "~/components/fancy/text/typewriter";
+import {
+  containerVariants,
+  imageVariants,
+  itemVariants,
+} from "~/consts/animations";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,70 +22,43 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-const experiences = [
-  {
-    company: "Utrip",
-    period: "Mar. 2025 - Atual",
-    role: "Front-End Developer Jr.",
-    description:
-      "Atuo como desenvolvedora Front-End utilizando React. Atualmente, estou alocada no time do Mais Taúá, trabalhando no desenvolvimento e na refatoração da aplicação do novo sistema.",
-    points: [
-      "Desenvolvedora Front-End, React",
-      "Time do Mais Taúá",
-      "Refatoração de aplicação",
-    ],
-  },
-  {
-    company: "Hubfy",
-    period: "Out 2024 - Fev. 2025",
-    role: "Front-End Developer Jr.",
-    description:
-      "Desenvolvi interfaces dinâmicas e responsivas, sendo responsável pelo front-end do novo sistema da Hubfy. Apliquei meus conhecimentos em Tailwind, React e Next.js para tornar a nova aplicação moderna, interativa e adaptável a diferentes dispositivos.",
-    points: [
-      "Desenvolvedora Front-End, React e Next.js",
-      "Criação de interfaces responsivas",
-    ],
-  },
-];
-
 export default function Index() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
+  let { t } = useTranslation();
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
-      },
+  const experiences = [
+    {
+      company: t("companies.0.company"),
+      period: t("companies.0.period"),
+      role: t("companies.0.role"),
+      description: t("companies.0.description"),
+      points: [
+        t("companies.0.points.0"),
+        t("companies.0.points.1"),
+        t("companies.0.points.2"),
+      ],
     },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut" as const,
-      },
+    {
+      company: t("companies.1.company"),
+      period: t("companies.1.period"),
+      role: t("companies.1.role"),
+      description: t("companies.1.description"),
+      points: [t("companies.1.points.0"), t("companies.1.points.1")],
     },
-  };
+  ];
 
   return (
     <div className="text-center">
+      <nav>
+        <Form>
+          <button type="submit" name="lng" value="pt">
+            Português
+          </button>
+          <button type="submit" name="lng" value="en">
+            English
+          </button>
+        </Form>
+      </nav>
+
       <section
         id="hero"
         className="relative flex min-h-screen items-center justify-center overflow-hidden"
@@ -88,8 +66,9 @@ export default function Index() {
         <div className="absolute h-[500px] w-[500px] rounded-full bg-primary blur-3xl"></div>
         <div className="relative z-10 mx-auto max-w-4xl px-4">
           <span className="mb-4 block font-libre text-2xl text-gray-700">
-            Pinuya
+            {t("title")}
           </span>
+
           <Typewriter
             text={["Web Designer", "Full-stack Developer", "UX/UI Enthusiast"]}
             speed={70}
@@ -119,36 +98,26 @@ export default function Index() {
               className="mb-6 text-lg leading-relaxed"
               variants={itemVariants}
             >
-              Oi, eu sou a Pinuya, uma{" "}
-              <span className="font-bold text-primary">
-                Desenvolvedora Full-Stack
-              </span>{" "}
-              com experiência em criação de aplicações web modernas e
-              responsivas. Especializada em{" "}
-              <span className="font-bold text-primary">
-                React, Next.js, Node.js e TypeScript,{" "}
-              </span>
-              com foco em performance, acessibilidade e experiência do usuário.
-              Apaixonada por resolver problemas complexos através de código
-              limpo e arquiteturas escaláveis.
+              {t("about.line1")}
+
+              <span className="font-bold text-primary">{t("about.line2")}</span>
+              {t("about.line3")}
+              <span className="font-bold text-primary">{t("about.line4")}</span>
+              {t("about.line5")}
             </motion.p>
 
             <motion.p
               className="mb-6 text-lg leading-relaxed"
               variants={itemVariants}
             >
-              Além de minhas habilidades técnicas, sou uma comunicadora eficaz e
-              colaboradora de equipe, sempre buscando aprender e crescer como
-              desenvolvedora. Estou animada para contribuir com projetos
-              desafiadores e inovadores que façam a diferença.
+              {t("about.line6")}
             </motion.p>
 
             <motion.p
               className="mb-0 text-lg leading-relaxed"
               variants={itemVariants}
             >
-              Quando não estou programando, você pode me encontrar explorando
-              novas coleções de bonecas. ૮ ྀིᴗ͈ . ᴗ͈ ྀིა
+              {t("about.line7")}
             </motion.p>
           </div>
 
@@ -205,7 +174,7 @@ export default function Index() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Resume
+          {t("expertice.title")}
         </motion.h1>
         <motion.div
           className="space-y-8"
@@ -259,7 +228,11 @@ export default function Index() {
 
       <HeartDetail />
 
-      <Footer />
+      <footer className="w-full py-4 text-center">
+        <p className="text-sm text-gray-600">
+          &copy; {new Date().getFullYear()} {t("footer.rights")}
+        </p>
+      </footer>
     </div>
   );
 }
