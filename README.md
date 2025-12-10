@@ -178,6 +178,127 @@ export const meta: MetaFunction = () => {
 </html>
 ```
 
+## 📝 Editando Arquivos de Internacionalização (i18n)
+
+### 📁 Estrutura de Arquivos
+
+```text
+/locales/
+├── pt.ts    # Traduções em português
+├── en.ts    # Traduções em inglês
+└── index.ts # Configuração principal
+```
+
+### 🔧 Como Editar Traduções
+
+1. Editar um Idioma Existente
+   Abra o arquivo do idioma desejado e modifique os valores das chaves:
+
+```javascript
+// /locales/pt.ts
+  title: "Pinuya",  // ← Edite eseses valores
+  description:
+    "Desenvolvedora Full-Stack apaixonada por criar experiências web incríveis.",
+  about: {
+  // ... outras seções
+}
+```
+
+2. Adicionar Nova Tradução
+   Adicione novas chaves em ambos os arquivos (pt.ts e en.ts) para manter consistência:
+
+```javascript
+// Em ambos pt.ts E en.ts
+export default = {
+  // ... traduções existentes
+
+  newSection: {
+    newKey: "Novo texto em português"  // ← Adicione aqui
+  }
+}
+
+export const en = {
+  // ... existing translations
+
+  newSection: {
+    newKey: "New text in English"  // ← Adicione a tradução correspondente
+  }
+}
+```
+
+3. Adicionar Novo Idioma
+   Crie um novo arquivo no diretório /locales:
+
+```text
+/locales/es.ts  # Para espanhol, por exemplo
+```
+
+Exporte as traduções no mesmo formato:
+
+```javascript
+// /locales/es.ts
+export default = {
+  common: {
+    welcome: "¡Hola, Bienvenido!",
+    save: "Guardar",
+    cancel: "Cancelar"
+  },
+  // ... outras traduções
+}
+```
+
+4. Adicione o novo idioma no arquivo de configuração:
+
+```javascript
+// /config/i18n.ts
+import { es } from "./es";
+
+export const resources = {
+  pt: { translation: pt },
+  en: { translation: en },
+  es: { translation: es }, // ← Novo idioma
+};
+```
+
+### 📋 Boas Práticas
+
+#### ✅ O que fazer:
+
+- Mantenha a mesma estrutura em todos os arquivos de idioma
+- Use chaves descritivas com namespace:
+
+```javascript
+// Bom
+dashboard: {
+  welcomeMessage: "Bem-vindo ao painel";
+}
+
+// Evitar
+welcomeMsg: "Bem-vindo ao painel";
+```
+
+- Adicione comentários para contexto quando necessário:
+
+```javascript
+errorMessages: {
+  invalidEmail: "E-mail inválido", // Exibido quando o formato do e-mail está incorreto
+  requiredField: "Este campo é obrigatório"
+}
+```
+
+### ❌ O que evitar:
+
+- Não modifique apenas um arquivo de idioma sem atualizar os outros
+- Não remova chaves que estão em uso no código
+- Não use texto dinâmico dentro das traduções (use parâmetros)
+
+### 📝 Convenções do Projeto
+
+- Idioma padrão: Português (pt)
+- Formato: TypeScript com objetos aninhados
+- Namespace: Use namespaces lógicos (common, auth, dashboard, etc.)
+- Chaves: camelCase com notação de ponto para hierarquia
+
 # 🚀 Deploy
 
 ### Opções de Hospedagem
