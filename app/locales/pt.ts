@@ -16,7 +16,7 @@ export default {
       "Quando não estou programando, você pode me encontrar explorando novas coleções de bonecas. ૮ ྀིᴗ͈ . ᴗ͈ ྀིა",
   },
   expertice: {
-    title: "Curriculo",
+    title: "Currículo",
   },
   companies: [
     {

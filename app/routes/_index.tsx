@@ -11,6 +11,15 @@ import {
   imageVariants,
   itemVariants,
 } from "~/consts/animations";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "~/components/ui/dropdown-menu";
+import { MdLanguage } from "react-icons/md";
+import { Button } from "~/components/ui/button";
 
 export const meta: MetaFunction = () => {
   return [
@@ -49,14 +58,37 @@ export default function Index() {
   return (
     <div className="text-center">
       <nav>
-        <Form>
-          <button type="submit" name="lng" value="pt">
-            Português
-          </button>
-          <button type="submit" name="lng" value="en">
-            English
-          </button>
-        </Form>
+        <div className="flex items-center justify-between px-4">
+          <div className="font-libre text-lg font-bold text-primary">
+            Pinuya
+          </div>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="icon">
+                <MdLanguage className="text-primary" />
+              </Button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent>
+              <DropdownMenuItem>
+                <Form>
+                  <button type="submit" name="lng" value="pt">
+                    🇧🇷 Português
+                  </button>
+                </Form>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                <Form>
+                  <button type="submit" name="lng" value="en">
+                    🇺🇲 English
+                  </button>
+                </Form>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </nav>
 
       <section
@@ -225,8 +257,6 @@ export default function Index() {
           ))}
         </motion.div>
       </section>
-
-      <HeartDetail />
 
       <footer className="w-full py-4 text-center">
         <p className="text-sm text-gray-600">
