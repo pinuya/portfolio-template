@@ -1,4 +1,4 @@
-<p align="center"> <img src="/public/favicon.ico" width="80" alt="Logo do Portfólio" /> <br> <img src="https://img.shields.io/badge/Remix-2.8.0-000000?logo=remix&logoColor=white" alt="Remix"> <img src="https://img.shields.io/badge/TailwindCSS-3.3.0-38B2AC?logo=tailwind-css&logoColor=white" alt="TailwindCSS"> <img src="https://img.shields.io/badge/Framer%20Motion-10.12.0-0055FF?logo=framer&logoColor=white" alt="Framer Motion"> <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178C6?logo=typescript&logoColor=white" alt="TypeScript"> </p><h1 align="center">✨ Portfólio Template para Desenvolvedores ✨</h1><p align="center"> <a href="https://portfolio-template-one-bice.vercel.app/">🌐 Site ao Vivo</a> • <a href="#-funcionalidades">🚀 Funcionalidades</a> • <a href="#-arquitetura">🏗️ Arquitetura</a> • <a href="#-começando">📦 Começando</a> • <a href="#-personalização">🎨 Personalização</a> </p>
+<p align="center"> <img src="/public/favicon.ico" width="80" alt="Logo do Portfólio" /> <br> <img src="https://img.shields.io/badge/Remix-2.8.0-000000?logo=remix&logoColor=white" alt="Remix"> <img src="https://img.shields.io/badge/TailwindCSS-3.3.0-38B2AC?logo=tailwind-css&logoColor=white" alt="TailwindCSS"> <img src="https://img.shields.io/badge/Framer%20Motion-10.12.0-0055FF?logo=framer&logoColor=white" alt="Framer Motion"> <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178C6?logo=typescript&logoColor=white" alt="TypeScript"> </p><h1 align="center">✨ Portfólio Template para Desenvolvedores ✨</h1><p align="center"> <a href="https://portfolio-template-one-bice.vercel.app/">🌐 Site ao Vivo
 
 [![Site preview](/public/ReadmeImage.png)](https://portfolio-pinuya.vercel.app/)
 
@@ -304,7 +304,7 @@ errorMessages: {
 
 ```bash
 # Instale a CLI da Vercel
-npm i -g vercel
+bunx vercel
 
 # Faça deploy
 vercel
