@@ -44,15 +44,12 @@ cd portfolio-template
 
 2. Instalação de Dependências
 
+Primeiro instale o bun na sua maquina:
+[Bun.com](https://bun.com/)
+
 ```bash
 # Com Bun (recomendado)
 bun install
-
-# Com npm
-npm install
-
-# Com yarn
-yarn install
 ```
 
 3. Configuração do Ambiente
