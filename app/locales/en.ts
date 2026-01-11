@@ -2,7 +2,7 @@ export default {
   title: "Pinuya",
   description:
     "Passionate Full-Stack Developer focused on creating amazing web experiences.",
-  teste: {
+  about: {
     line1: "Hi, I'm Pinuya, a ",
     line2: "Full-Stack Developer ",
     line3:
