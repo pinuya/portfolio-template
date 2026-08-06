@@ -2,7 +2,28 @@ export default {
   title: "Pinuya",
   description:
     "Passionate Full-Stack Developer focused on creating amazing web experiences.",
+
+  nav: {
+    about: "About",
+    experience: "Experience",
+    projects: "Projects",
+    stack: "Stack",
+    theme: "Toggle theme",
+    language: "Change language",
+    menu: "Open menu",
+  },
+
+  hero: {
+    badge: "Available for new projects",
+    greeting: "Hi, I'm Pinuya",
+    cta: "Get in touch",
+    secondaryCta: "See projects",
+    scroll: "Scroll to explore",
+  },
+
   about: {
+    eyebrow: "About",
+    title: "A little about me",
     line1: "Hi, I'm Pinuya, a ",
     line2: "Full-Stack Developer ",
     line3:
@@ -15,9 +36,14 @@ export default {
     line7:
       "When I'm not coding, you can find me exploring new doll collections. ૮ ྀིᴗ͈ . ᴗ͈ ྀིა",
   },
+
   expertise: {
-    title: "Resume",
+    eyebrow: "Career",
+    title: "Experience",
+    subtitle: "Where I've worked and what I built there.",
+    current: "Current",
   },
+
   companies: [
     {
       company: "Utrip",
@@ -43,7 +69,63 @@ export default {
       ],
     },
   ],
+
+  work: {
+    eyebrow: "Work",
+    title: "Selected projects",
+    subtitle: "A few things I've built recently.",
+    viewCode: "Code",
+    viewLive: "Live site",
+  },
+
+  /**
+   * Add or remove projects freely.
+   * `href` is the live link and `repo` the repository link —
+   * leave it empty ("") to hide the button.
+   */
+  projects: [
+    {
+      name: "Portfolio Template",
+      description:
+        "Open source portfolio template built with Remix, Tailwind and TypeScript, with light/dark themes and two languages out of the box.",
+      tags: ["Remix", "Tailwind", "i18n"],
+      href: "https://portfolio-template-one-bice.vercel.app",
+      repo: "https://github.com/pinuya/portfolio-template",
+    },
+    {
+      name: "Your next project",
+      description:
+        "Describe what you built, which problem it solves and which technologies you used. Two or three lines are usually enough.",
+      tags: ["Next.js", "TypeScript"],
+      href: "",
+      repo: "",
+    },
+    {
+      name: "One more project",
+      description:
+        "Side projects count too! Show experiments, open source contributions or studies you are proud of.",
+      tags: ["React", "Node.js"],
+      href: "",
+      repo: "",
+    },
+  ],
+
+  stack: {
+    eyebrow: "Tooling",
+    title: "Stack",
+    subtitle: "The technologies I work with day to day.",
+  },
+
+  contact: {
+    eyebrow: "Contact",
+    title: "Let's build something together",
+    subtitle:
+      "I'm open to new opportunities, collaborations and conversations about code.",
+    cta: "Send an email",
+  },
+
   footer: {
     rights: "Pinuya. All rights reserved.",
+    builtWith: "Built with Remix and Tailwind CSS",
   },
 };

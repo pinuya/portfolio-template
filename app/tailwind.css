@@ -4,85 +4,133 @@
 
 @layer base {
   :root {
-    --background: 219.9988 11.1749% 94.701%;
-    --foreground: 223.8136 0% 3.9388%;
-    --card: 223.8136 -172.5242% 100%;
-    --card-foreground: 223.8136 0% 3.9388%;
-    --popover: 223.8136 -172.5242% 100%;
-    --popover-foreground: 223.8136 0% 3.9388%;
-    --primary: 331.1125 87.1904% 87.8482%;
-    --primary-foreground: 219.9988 11.1749% 94.701%;
-    --secondary: 331.1125 87.1904% 87.8482%;
-    --secondary-foreground: 223.8136 0% 9.0527%;
-    --muted: 328.0204 83.4516% 50.1912%;
-    --muted-foreground: 223.8136 0% 45.1519%;
-    --accent: 328.0204 83.4516% 50.1912%;
-    --accent-foreground: 223.8136 0% 9.0527%;
-    --destructive: 351.7303 123.6748% 40.5257%;
-    --destructive-foreground: 223.8136 -172.5242% 100%;
-    --border: 223.8136 0.0001% 89.8161%;
-    --input: 223.8136 0.0001% 89.8161%;
-    --ring: 331.1125 87.1904% 87.8482%;
-    --chart-1: 331.1125 87.1904% 87.8482%;
-    --chart-2: 328.0204 83.4516% 50.1912%;
-    --chart-3: 213.5605 33.7183% 34.3198%;
-    --chart-4: 223.6587 78.718% 47.8635%;
-    --chart-5: 226.5426 70.0108% 39.9224%;
-    --sidebar: 223.8136 0.0004% 98.0256%;
-    --sidebar-foreground: 223.8136 0% 3.9388%;
-    --sidebar-primary: 223.8136 0% 9.0527%;
-    --sidebar-primary-foreground: 223.8136 0.0004% 98.0256%;
-    --sidebar-accent: 223.8136 0.0002% 96.0587%;
-    --sidebar-accent-foreground: 223.8136 0% 9.0527%;
-    --sidebar-border: 223.8136 0.0001% 89.8161%;
-    --sidebar-ring: 223.8136 0% 63.0163%;
-    --font-sans: DM Sans, ui-sans-serif, sans-serif, system-ui;
-    --font-libre: "Libre Baskerville", ui-sans-serif, sans-serif, system-ui;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-      "Liberation Mono", "Courier New", monospace;
-    --radius: 0.625rem;
-    --shadow-x: 0;
-    --shadow-y: 1px;
-    --shadow-blur: 3px;
-    --shadow-spread: 0px;
-    --shadow-opacity: 0.1;
-    --shadow-color: oklch(0 0 0);
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-      0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-      0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-      0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-      0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
-      0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-    --tracking-normal: 0em;
-    --spacing: 0.25rem;
+    /* Neutrals */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 6%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 44%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+
+    /* Brand accent — change these two lines to re-skin the whole site */
+    --primary: 340 72% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 6%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 10% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 340 72% 50%;
+
+    /* Subtle glow used behind the hero */
+    --glow: 340 80% 72%;
+
+    --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
+
+    --radius: 0.75rem;
   }
-}
 
-html,
-body {
-  @apply bg-[#F0F1F3] text-gray-900;
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 8% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 8% 7%;
+    --popover-foreground: 0 0% 98%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 62%;
+    --border: 240 5% 16%;
+    --input: 240 5% 16%;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+    --primary: 340 80% 68%;
+    --primary-foreground: 240 10% 6%;
+
+    --secondary: 240 5% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --accent: 240 5% 12%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62% 52%;
+    --destructive-foreground: 0 0% 98%;
+    --ring: 340 80% 68%;
+
+    --glow: 340 70% 45%;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    /* keeps anchored sections clear of the sticky header */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-sans text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-primary/20;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Faint dot grid used as a page backdrop */
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      hsl(var(--foreground) / 0.12) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+}
+
+@layer utilities {
+  /* Fades an element out towards its edges — used to soften the dot grid */
+  .mask-radial-fade {
+    -webkit-mask-image: radial-gradient(
+      ellipse 60% 60% at 50% 40%,
+      #000 20%,
+      transparent 75%
+    );
+    mask-image: radial-gradient(
+      ellipse 60% 60% at 50% 40%,
+      #000 20%,
+      transparent 75%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
