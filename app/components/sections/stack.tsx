@@ -1,7 +1,7 @@
 import type { ComponentType } from "react";
 import { useTranslation } from "react-i18next";
 import {
-  SiCss3,
+  SiCss,
   SiDocker,
   SiExpress,
   SiFigma,
@@ -37,7 +37,7 @@ const ICONS: Record<string, ComponentType<{ className?: string }>> = {
   TypeScript: SiTypescript,
   "Tailwind CSS": SiTailwindcss,
   HTML: SiHtml5,
-  CSS: SiCss3,
+  CSS: SiCss,
   "Node.js": SiNodedotjs,
   Express: SiExpress,
   Supabase: SiSupabase,

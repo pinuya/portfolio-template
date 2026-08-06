@@ -87,8 +87,8 @@ export default {
     {
       name: "Portfolio Template",
       description:
-        "Template de portfólio open source em Remix, Tailwind e TypeScript, com suporte a tema claro/escuro e dois idiomas.",
-      tags: ["Remix", "Tailwind", "i18n"],
+        "Template de portfólio open source em React Router, Tailwind e TypeScript, com suporte a tema claro/escuro e dois idiomas.",
+      tags: ["React Router", "Tailwind", "i18n"],
       href: "https://portfolio-template-one-bice.vercel.app",
       repo: "https://github.com/pinuya/portfolio-template",
     },
@@ -126,6 +126,6 @@ export default {
 
   footer: {
     rights: "Pinuya. Todos os direitos reservados.",
-    builtWith: "Feito com Remix e Tailwind CSS",
+    builtWith: "Feito com React Router e Tailwind CSS",
   },
 };

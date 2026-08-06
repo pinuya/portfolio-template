@@ -5,7 +5,7 @@ import { I18nextProvider, initReactI18next } from "react-i18next";
 import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import * as i18n from "~/config/i18n";
 import { getInitialNamespaces } from "remix-i18next/client";
-import { RemixBrowser } from "@remix-run/react";
+import { HydratedRouter } from "react-router/dom";
 
 async function main() {
   await i18next
@@ -22,7 +22,7 @@ async function main() {
       document,
       <I18nextProvider i18n={i18next}>
         <StrictMode>
-          <RemixBrowser />
+          <HydratedRouter />
         </StrictMode>
       </I18nextProvider>
     );

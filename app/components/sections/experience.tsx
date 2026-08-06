@@ -13,9 +13,6 @@ interface Experience {
 
 export function Experience() {
   const { t } = useTranslation();
-
-  // Reading the whole array lets you add or remove jobs in the locale files
-  // without ever touching this component.
   const experiences = t("companies", { returnObjects: true }) as Experience[];
 
   return (
