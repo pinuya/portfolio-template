@@ -2,7 +2,28 @@ export default {
   title: "Pinuya",
   description:
     "Desenvolvedora Full-Stack apaixonada por criar experiências web incríveis.",
+
+  nav: {
+    about: "Sobre",
+    experience: "Experiência",
+    projects: "Projetos",
+    stack: "Stack",
+    theme: "Alternar tema",
+    language: "Alterar idioma",
+    menu: "Abrir menu",
+  },
+
+  hero: {
+    badge: "Disponível para novos projetos",
+    greeting: "Oi, eu sou a Pinuya",
+    cta: "Vamos conversar",
+    secondaryCta: "Ver projetos",
+    scroll: "Role para explorar",
+  },
+
   about: {
+    eyebrow: "Sobre",
+    title: "Um pouco sobre mim",
     line1: "Oi, eu sou a Pinuya, uma ",
     line2: "Desenvolvedora Full-Stack ",
     line3:
@@ -15,9 +36,14 @@ export default {
     line7:
       "Quando não estou programando, você pode me encontrar explorando novas coleções de bonecas. ૮ ྀིᴗ͈ . ᴗ͈ ྀིა",
   },
-  expertice: {
-    title: "Currículo",
+
+  expertise: {
+    eyebrow: "Carreira",
+    title: "Experiência",
+    subtitle: "Onde eu trabalhei e o que construí por lá.",
+    current: "Atual",
   },
+
   companies: [
     {
       company: "Utrip",
@@ -43,7 +69,63 @@ export default {
       ],
     },
   ],
+
+  work: {
+    eyebrow: "Trabalhos",
+    title: "Projetos selecionados",
+    subtitle: "Algumas coisas que construí recentemente.",
+    viewCode: "Código",
+    viewLive: "Ver online",
+  },
+
+  /**
+   * Adicione ou remova projetos livremente.
+   * `href` é o link do site e `repo` o link do repositório —
+   * deixe vazio ("") para esconder o botão.
+   */
+  projects: [
+    {
+      name: "Portfolio Template",
+      description:
+        "Template de portfólio open source em Remix, Tailwind e TypeScript, com suporte a tema claro/escuro e dois idiomas.",
+      tags: ["Remix", "Tailwind", "i18n"],
+      href: "https://portfolio-template-one-bice.vercel.app",
+      repo: "https://github.com/pinuya/portfolio-template",
+    },
+    {
+      name: "Seu próximo projeto",
+      description:
+        "Descreva aqui o que você construiu, qual problema resolveu e quais tecnologias usou. Duas ou três linhas costumam ser suficientes.",
+      tags: ["Next.js", "TypeScript"],
+      href: "",
+      repo: "",
+    },
+    {
+      name: "Mais um projeto",
+      description:
+        "Projetos pessoais também contam! Mostre experimentos, contribuições open source ou estudos que você tem orgulho.",
+      tags: ["React", "Node.js"],
+      href: "",
+      repo: "",
+    },
+  ],
+
+  stack: {
+    eyebrow: "Ferramentas",
+    title: "Stack",
+    subtitle: "As tecnologias com as quais trabalho no dia a dia.",
+  },
+
+  contact: {
+    eyebrow: "Contato",
+    title: "Vamos construir algo juntos",
+    subtitle:
+      "Estou aberta a novas oportunidades, colaborações e conversas sobre código.",
+    cta: "Enviar e-mail",
+  },
+
   footer: {
     rights: "Pinuya. Todos os direitos reservados.",
+    builtWith: "Feito com Remix e Tailwind CSS",
   },
 };

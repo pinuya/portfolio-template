@@ -13,6 +13,7 @@ import "./tailwind.css";
 import i18nServer, { localeCookie } from "./modules/i18n.server";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import { themeScript } from "~/components/theme-toggle";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -30,7 +31,7 @@ export const links: LinksFunction = () => [
 export const handle = { i18n: ["translation"] };
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  let locale = await i18nServer.getLocale(request); // get the locale
+  const locale = await i18nServer.getLocale(request); // get the locale
   return data(
     { locale },
     { headers: { "Set-Cookie": await localeCookie.serialize(locale) } }
@@ -38,17 +39,20 @@ export async function loader({ request }: LoaderFunctionArgs) {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  let loaderData = useRouteLoaderData<typeof loader>("root");
+  const loaderData = useRouteLoaderData<typeof loader>("root");
 
   return (
-    <html lang={loaderData?.locale ?? "en"}>
+    <html lang={loaderData?.locale ?? "en"} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
         <Meta />
         <Links />
+        {/* Applies the saved theme before the first paint to avoid a flash */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="py-4 font-dmSans">
+      <body>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -58,8 +62,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  let { locale } = useLoaderData<typeof loader>();
-  let { i18n } = useTranslation();
+  const { locale } = useLoaderData<typeof loader>();
+  const { i18n } = useTranslation();
   useEffect(() => {
     if (i18n.language !== locale) i18n.changeLanguage(locale);
   }, [locale, i18n]);

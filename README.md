@@ -12,6 +12,15 @@ Este projeto foi desenvolvido para ajudar desenvolvedores de todos os níveis a 
 - 📱 Garantir responsividade total
 - 🎨 Ser facilmente personalizável
 
+### O que já vem pronto:
+
+- 🌗 **Tema claro e escuro** com detecção automática e sem flash ao carregar
+- 🌍 **Dois idiomas** (PT/EN) com troca instantânea, funcionando até sem JavaScript
+- 🧩 **Seções prontas**: hero, sobre, experiência, projetos, stack e contato
+- ⚙️ **Um arquivo de configuração** (`app/config/site.ts`) para os seus dados
+- ✨ Animações sutis com Motion, respeitando `prefers-reduced-motion`
+- ♿ Navegação por teclado, foco visível e contraste acessível
+
 # 🏗️ Arquitetura do Projeto
 
 ```
@@ -52,17 +61,7 @@ Primeiro instale o bun na sua maquina:
 bun install
 ```
 
-3. Configuração do Ambiente
-
-```bash
-# Copie o arquivo de exemplo
-cp .env.example .env
-
-# Edite as variáveis necessárias
-# Edite .env com suas configurações
-```
-
-4. Inicie o Servidor
+3. Inicie o Servidor
 
 ```bash
 # Desenvolvimento
@@ -72,118 +71,124 @@ bun dev
 # http://localhost:3000
 ```
 
-### ⚙️ Configuração
+# 🗂️ Estrutura
 
-#### Configurações do Tailwind
-
-O projeto já vem com Tailwind configurado. Para personalizar:
-
-```js
-// tailwind.config.js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#your-color",
-        secondary: "#your-color",
-      },
-      fontFamily: {
-        sans: ["Inter", "system-ui"],
-      },
-    },
-  },
-};
+```text
+app/
+├── config/
+│   ├── site.ts          # 👈 seus dados: nome, links, foto, stack, navbar
+│   └── i18n.ts          # idiomas suportados
+├── locales/
+│   ├── pt.ts            # 👈 todos os textos em português
+│   └── en.ts            # 👈 todos os textos em inglês
+├── components/
+│   ├── sections/        # Hero, About, Experience, Projects, Stack, Contact
+│   ├── ui/              # Button, DropdownMenu (shadcn/ui)
+│   ├── site-header.tsx  # navbar + troca de idioma + troca de tema
+│   ├── site-footer.tsx
+│   ├── section.tsx      # espaçamento e título padrão das seções
+│   └── reveal.tsx       # animação de entrada ao scrollar
+├── routes/_index.tsx    # monta a página juntando as seções
+└── tailwind.css         # 👈 tokens de cor (tema claro e escuro)
 ```
 
 # 🎨 Personalização
 
-1. Cores e Tema
-   No projeto voce tambem pode adicionar seu proprio tema personalizado no `/app/tailwind.css`, voce pode utilizar o site [tweakcn.com](https://tweakcn.com/editor/theme) para lhe auxiliar na montagem do seu tema :D
+Praticamente tudo que você precisa mudar está em **três arquivos**.
 
-```javascript
-// no /app/tailwind.css voce encontra o arquivo :root onde esta o tema que eu predefini.
-@layer base {
-  :root {
-    --background: 219.9988 11.1749% 94.701%;
-```
+### 1. Seus dados — `app/config/site.ts`
 
-2. Conteúdo Principal
-   Edite os arquivos de dados em `/_index.tsx`
+Nome, foto, links sociais, itens da navbar e sua stack:
 
-```javascript
-// substitua com suas experiencias
-const experiences = [
-  {
-    company: "Utrip",
-    period: "Mar. 2025 - Atual",
-    role: "Front-End Developer Jr.",
-    description:
-      "Atuo como desenvolvedora Front-End utilizando React. Atualmente, estou alocada no time do Mais Taúá, trabalhando no desenvolvimento e na refatoração da aplicação do novo sistema.",
-    points: [
-      "Desenvolvedora Front-End, React",
-      "Time do Mais Taúá",
-      "Refatoração de aplicação",
-    ],
+```ts
+export const siteConfig = {
+  name: "Seu Nome",
+  avatar: "/pfp.jpg", // troque a imagem em public/
+  headlines: ["Web Designer", "Full-stack Developer"],
+  links: {
+    github: "https://github.com/seu-usuario",
+    linkedin: "https://linkedin.com/in/seu-usuario",
+    email: "voce@exemplo.com", // deixe "" para esconder o link
   },
-  {
-    company: "Hubfy",
-    period: "Out 2024 - Fev. 2025",
-    role: "Front-End Developer Jr.",
-    description:
-      "Desenvolvi interfaces dinâmicas e responsivas, sendo responsável pelo front-end do novo sistema da Hubfy. Apliquei meus conhecimentos em Tailwind, React e Next.js para tornar a nova aplicação moderna, interativa e adaptável a diferentes dispositivos.",
-    points: [
-      "Desenvolvedora Front-End, React e Next.js",
-      "Criação de interfaces responsivas",
-    ],
-  },
-];
-```
-
-3. Meta Data - SEO
-
-```javascript
-// voce pode editar o title como preferir
-export const meta: MetaFunction = () => {
-  return [
-    { title: "Portfolio" },
-    {
-      name: "Portfolio",
-      content: "Bem-vindos ao meu portfolio construido em Remix.",
-    },
-  ];
+  // ...
 };
 ```
 
-4. Seções
-   Para adicionar/remover seções, edite `app/root.tsx`:
+Na seção **Stack**, os nomes são convertidos em ícones automaticamente.
+Tecnologias sem ícone conhecido aparecem só com o texto, então você pode
+adicionar o que quiser — e cadastrar novos ícones em
+`app/components/sections/stack.tsx`.
 
-```javascript
-// Adicione ou remova componentes de seção
-<html lang="en">
-  <head>
-    <meta charSet="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <Meta />
-    <Links />
-  </head>
-  <body className="py-4 font-dmSans">
-    {/* <Nav /> */}
-    {children}
-    <ScrollRestoration />
-    <Scripts />
-  </body>
-</html>
+### 2. Seus textos — `app/locales/pt.ts` e `app/locales/en.ts`
+
+Bio, experiências e projetos ficam aqui, porque são traduzidos.
+Adicione ou remova itens dos arrays livremente — as seções se ajustam sozinhas:
+
+```ts
+projects: [
+  {
+    name: "Meu Projeto",
+    description: "O que ele faz e quais problemas resolve.",
+    tags: ["Next.js", "TypeScript"],
+    href: "https://meu-projeto.com", // "" esconde o botão
+    repo: "https://github.com/...",  // "" esconde o botão
+  },
+],
 ```
+
+> ⚠️ Edite sempre os **dois** arquivos para manter os idiomas em sincronia.
+
+### 3. Suas cores — `app/tailwind.css`
+
+O tema usa CSS variables em HSL, com suporte a claro e escuro. Para trocar a
+identidade visual inteira, basta mudar a cor de destaque nos dois blocos:
+
+```css
+:root {
+  --primary: 340 72% 50%; /* 👈 tema claro */
+}
+
+.dark {
+  --primary: 340 80% 68%; /* 👈 tema escuro, um tom mais claro */
+}
+```
+
+Use o [tweakcn.com](https://tweakcn.com/editor/theme) se quiser montar uma
+paleta completa visualmente.
+
+### Adicionando ou removendo seções
+
+Cada seção é um componente independente em `app/components/sections/`.
+Para reordenar ou remover, edite `app/routes/_index.tsx`:
+
+```tsx
+<main>
+  <Hero />
+  <About />
+  <Experience />
+  <Projects />
+  <Stack />
+  <Contact />
+</main>
+```
+
+Se remover uma seção, lembre-se de tirar o item correspondente de
+`siteConfig.nav`.
+
+### SEO
+
+Título, descrição e Open Graph ficam no `meta` de `app/routes/_index.tsx`.
 
 ## 📝 Editando Arquivos de Internacionalização (i18n)
 
 ### 📁 Estrutura de Arquivos
 
 ```text
-/locales/
-├── pt.ts    # Traduções em português
-├── en.ts    # Traduções em inglês
-└── index.ts # Configuração principal
+app/locales/
+├── pt.ts            # Traduções em português
+└── en.ts            # Traduções em inglês
+
+app/config/i18n.ts   # Idiomas suportados e idioma padrão
 ```
 
 ### 🔧 Como Editar Traduções
@@ -247,14 +252,26 @@ export default = {
 4. Adicione o novo idioma no arquivo de configuração:
 
 ```javascript
-// /config/i18n.ts
-import { es } from "./es";
+// app/config/i18n.ts
+import es from "~/locales/es";
+
+export const supportedLngs = ["pt", "en", "es"]; // ← Novo idioma
 
 export const resources = {
   pt: { translation: pt },
   en: { translation: en },
   es: { translation: es }, // ← Novo idioma
 };
+```
+
+E adicione a opção no seletor em `app/components/language-switcher.tsx`:
+
+```tsx
+const LANGUAGES = [
+  { code: "pt", flag: "🇧🇷", label: "Português" },
+  { code: "en", flag: "🇺🇸", label: "English" },
+  { code: "es", flag: "🇪🇸", label: "Español" }, // ← Novo idioma
+];
 ```
 
 ### 📋 Boas Práticas
