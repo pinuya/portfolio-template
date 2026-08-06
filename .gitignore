@@ -3,3 +3,6 @@ node_modules
 /.cache
 /build
 .env
+
+# Tipos gerados pelo React Router (`react-router typegen`)
+.react-router/

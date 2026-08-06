@@ -7,8 +7,8 @@ import {
   ScrollRestoration,
   useLoaderData,
   useRouteLoaderData,
-} from "@remix-run/react";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+} from "react-router";
+import type { LinksFunction, LoaderFunctionArgs } from "react-router";
 import "./tailwind.css";
 import i18nServer, { localeCookie } from "./modules/i18n.server";
 import { useTranslation } from "react-i18next";
@@ -49,7 +49,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="color-scheme" content="light dark" />
         <Meta />
         <Links />
-        {/* Applies the saved theme before the first paint to avoid a flash */}
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>

@@ -1,4 +1,4 @@
-<p align="center"> <img src="/public/favicon.ico" width="80" alt="Logo do Portfólio" /> <br> <img src="https://img.shields.io/badge/Remix-2.8.0-000000?logo=remix&logoColor=white" alt="Remix"> <img src="https://img.shields.io/badge/TailwindCSS-3.3.0-38B2AC?logo=tailwind-css&logoColor=white" alt="TailwindCSS"> <img src="https://img.shields.io/badge/Framer%20Motion-10.12.0-0055FF?logo=framer&logoColor=white" alt="Framer Motion"> <img src="https://img.shields.io/badge/TypeScript-5.0.0-3178C6?logo=typescript&logoColor=white" alt="TypeScript"> </p><h1 align="center">✨ Portfólio Template para Desenvolvedores ✨</h1><p align="center"> <a href="https://portfolio-template-one-bice.vercel.app/">🌐 Site ao Vivo
+<p align="center"> <img src="/public/favicon.ico" width="80" alt="Logo do Portfólio" /> <br> <img src="https://img.shields.io/badge/React%20Router-7-CA4245?logo=reactrouter&logoColor=white" alt="React Router"> <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black" alt="React"> <img src="https://img.shields.io/badge/TailwindCSS-3-38B2AC?logo=tailwind-css&logoColor=white" alt="TailwindCSS"> <img src="https://img.shields.io/badge/Motion-12-0055FF?logo=framer&logoColor=white" alt="Motion"> <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript"> <img src="https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white" alt="Vite"> </p><h1 align="center">✨ Portfólio Template para Desenvolvedores ✨</h1><p align="center"> <a href="https://portfolio-template-one-bice.vercel.app/">🌐 Site ao Vivo
 
 [![Site preview](/public/ReadmeImage.png)](https://portfolio-pinuya.vercel.app/)
 
@@ -51,7 +51,16 @@ git clone https://github.com/seu-usuario/portfolio-template.git
 cd portfolio-template
 ```
 
-2. Instalação de Dependências
+2. Node.js
+
+O projeto exige **Node.js `^20.19.0` ou `>=22.12.0`** (requisito do Vite 8).
+Se você usa [nvm](https://github.com/nvm-sh/nvm), o `.nvmrc` já está pronto:
+
+```bash
+nvm use
+```
+
+3. Instalação de Dependências
 
 Primeiro instale o bun na sua maquina:
 [Bun.com](https://bun.com/)
@@ -61,7 +70,7 @@ Primeiro instale o bun na sua maquina:
 bun install
 ```
 
-3. Inicie o Servidor
+4. Inicie o Servidor
 
 ```bash
 # Desenvolvimento
@@ -89,8 +98,15 @@ app/
 │   ├── section.tsx      # espaçamento e título padrão das seções
 │   └── reveal.tsx       # animação de entrada ao scrollar
 ├── routes/_index.tsx    # monta a página juntando as seções
+├── routes.ts            # de onde as rotas são carregadas
 └── tailwind.css         # 👈 tokens de cor (tema claro e escuro)
+
+react-router.config.ts   # SSR e flags do framework
+vite.config.ts
 ```
+
+> As rotas continuam sendo baseadas em arquivos: crie um `.tsx` novo em
+> `app/routes/` e ele vira uma rota, sem precisar registrar em lugar nenhum.
 
 # 🎨 Personalização
 
@@ -406,7 +422,7 @@ Se você usar este template, considere:
 
 Um agradecimento especial a:
 
-- [Remix](https://remix.run/) - Framework incrível
+- [React Router](https://reactrouter.com/) - Framework incrível
 - [Tailwind CSS](https://tailwindcss.com/) - Estilização utilitária
 - [Framer Motion](https://motion.dev/) - Animações fluidas
 - Todos os contribuidores do projeto

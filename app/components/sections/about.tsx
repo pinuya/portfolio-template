@@ -38,7 +38,6 @@ export function About() {
 
         <Reveal className="order-1 md:order-2" delay={0.1}>
           <div className="relative mx-auto w-full max-w-[320px]">
-            {/* Offset frame — a small depth cue that needs no shadow */}
             <div
               aria-hidden
               className="absolute -bottom-3 -right-3 h-full w-full rounded-2xl border border-primary/30"

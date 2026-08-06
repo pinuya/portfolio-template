@@ -1,8 +1,7 @@
 import { PassThrough } from "node:stream";
-
-import type { AppLoadContext, EntryContext } from "@remix-run/node";
-import { createReadableStreamFromReadable } from "@remix-run/node";
-import { RemixServer } from "@remix-run/react";
+import type { AppLoadContext, EntryContext } from "react-router";
+import { ServerRouter } from "react-router";
+import { createReadableStreamFromReadable } from "@react-router/node";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { createInstance } from "i18next";
@@ -11,15 +10,13 @@ import { I18nextProvider, initReactI18next } from "react-i18next";
 import * as i18n from "./config/i18n";
 
 const ABORT_DELAY = 5_000;
+export const streamTimeout = ABORT_DELAY;
 
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
-  // This is ignored so we can keep it in the template for visibility.  Feel
-  // free to delete this parameter in your app if you're not using it!
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  routerContext: EntryContext,
   loadContext: AppLoadContext
 ) {
   return isbot(request.headers.get("user-agent") || "")
@@ -27,13 +24,13 @@ export default function handleRequest(
         request,
         responseStatusCode,
         responseHeaders,
-        remixContext
+        routerContext
       )
     : handleBrowserRequest(
         request,
         responseStatusCode,
         responseHeaders,
-        remixContext
+        routerContext
       );
 }
 
@@ -41,11 +38,11 @@ async function handleBotRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
+  routerContext: EntryContext
 ) {
   const instance = createInstance();
   const lng = await i18nServer.getLocale(request);
-  const ns = i18nServer.getRouteNamespaces(remixContext);
+  const ns = i18nServer.getRouteNamespaces(routerContext);
 
   await instance.use(initReactI18next).init({
     ...i18n,
@@ -57,11 +54,7 @@ async function handleBotRequest(
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
       <I18nextProvider i18n={instance}>
-        <RemixServer
-          context={remixContext}
-          url={request.url}
-          abortDelay={ABORT_DELAY}
-        />
+        <ServerRouter context={routerContext} url={request.url} />
       </I18nextProvider>,
       {
         onAllReady() {
@@ -85,9 +78,6 @@ async function handleBotRequest(
         },
         onError(error: unknown) {
           responseStatusCode = 500;
-          // Log streaming rendering errors from inside the shell.  Don't log
-          // errors encountered during initial shell rendering since they'll
-          // reject and get logged in handleDocumentRequest.
           if (shellRendered) {
             console.error(error);
           }
@@ -103,11 +93,11 @@ async function handleBrowserRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext
+  routerContext: EntryContext
 ) {
   const instance = createInstance();
   const lng = await i18nServer.getLocale(request);
-  const ns = i18nServer.getRouteNamespaces(remixContext);
+  const ns = i18nServer.getRouteNamespaces(routerContext);
 
   await instance.use(initReactI18next).init({
     ...i18n,
@@ -119,11 +109,7 @@ async function handleBrowserRequest(
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
       <I18nextProvider i18n={instance}>
-        <RemixServer
-          context={remixContext}
-          url={request.url}
-          abortDelay={ABORT_DELAY}
-        />
+        <ServerRouter context={routerContext} url={request.url} />
       </I18nextProvider>,
       {
         onShellReady() {
@@ -147,9 +133,6 @@ async function handleBrowserRequest(
         },
         onError(error: unknown) {
           responseStatusCode = 500;
-          // Log streaming rendering errors from inside the shell.  Don't log
-          // errors encountered during initial shell rendering since they'll
-          // reject and get logged in handleDocumentRequest.
           if (shellRendered) {
             console.error(error);
           }

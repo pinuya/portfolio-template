@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 
 import { About } from "~/components/sections/about";
 import { Contact } from "~/components/sections/contact";
@@ -13,7 +13,7 @@ import { siteConfig } from "~/config/site";
 export const meta: MetaFunction = () => {
   const title = `${siteConfig.name} — Portfolio`;
   const description =
-    "Portfolio built with Remix, Tailwind CSS and TypeScript.";
+    "Portfolio built with React Router, Tailwind CSS and TypeScript.";
 
   return [
     { title },

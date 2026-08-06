@@ -23,18 +23,18 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[92svh] items-center justify-center overflow-hidden"
     >
-      {/* Backdrop: a faint dot grid plus one soft glow, both purely decorative */}
+   
       <div
         aria-hidden
         className="bg-dot-grid mask-radial-fade pointer-events-none absolute inset-0"
       />
       <div
         aria-hidden
-        className="animate-pulse-slow pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[min(680px,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-glow/25 blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[min(680px,90vw)] -translate-x-1/2 -translate-y-1/2 animate-pulse-slow rounded-full bg-glow/25 blur-[120px]"
       />
 
       <div className="container relative z-10 flex flex-col items-center pt-16 text-center">
-        <div className="animate-fade-up mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
+        <div className="mb-8 inline-flex animate-fade-up items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">
           <span className="relative flex h-1.5 w-1.5">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
@@ -43,14 +43,14 @@ export function Hero() {
         </div>
 
         <h1
-          className="animate-fade-up font-serif text-4xl font-bold leading-[1.1] tracking-tight text-balance sm:text-5xl md:text-6xl"
+          className="animate-fade-up text-balance font-serif text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
           style={{ animationDelay: "80ms" }}
         >
           {t("hero.greeting")}
         </h1>
 
         <div
-          className="animate-fade-up mt-5 flex min-h-[2.5rem] items-center justify-center text-xl text-muted-foreground sm:text-2xl md:text-3xl"
+          className="mt-5 flex min-h-[2.5rem] animate-fade-up items-center justify-center text-xl text-muted-foreground sm:text-2xl md:text-3xl"
           style={{ animationDelay: "160ms" }}
         >
           <Typewriter
@@ -65,14 +65,14 @@ export function Hero() {
         </div>
 
         <p
-          className="animate-fade-up mt-6 max-w-xl text-base leading-relaxed text-muted-foreground text-balance"
+          className="mt-6 max-w-xl animate-fade-up text-balance text-base leading-relaxed text-muted-foreground"
           style={{ animationDelay: "240ms" }}
         >
           {t("description")}
         </p>
 
         <div
-          className="animate-fade-up mt-9 flex flex-col items-center gap-3 sm:flex-row"
+          className="mt-9 flex animate-fade-up flex-col items-center gap-3 sm:flex-row"
           style={{ animationDelay: "320ms" }}
         >
           <Button asChild size="lg">
@@ -84,7 +84,7 @@ export function Hero() {
         </div>
 
         <div
-          className="animate-fade-up mt-8 flex items-center gap-1"
+          className="mt-8 flex animate-fade-up items-center gap-1"
           style={{ animationDelay: "400ms" }}
         >
           {socials.map((social) => (
