@@ -1,4 +1,5 @@
 import type { Config } from "@react-router/dev/config";
+import { vercelPreset } from "@vercel/react-router/vite";
 
 export default {
   /**
@@ -9,6 +10,11 @@ export default {
    * `react-router build` passa a emitir HTML pré-renderizado.
    */
   ssr: true,
+
+  /**
+   * Ajusta o build para o runtime da Vercel (funções serverless e assets).
+   */
+  presets: [vercelPreset()],
 
   /**
    * Comportamentos que passam a ser padrão no React Router v8. Ligar agora

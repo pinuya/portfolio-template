@@ -1,0 +1,88 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/_index": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "app/root.tsx",
+        "path": "",
+        "config": {}
+      },
+      "routes/_index": {
+        "id": "routes/_index",
+        "parentId": "root",
+        "file": "app/routes/_index.tsx",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "/home/tifany/portfolio-template/app",
+    "basename": "/",
+    "buildDirectory": "/home/tifany/portfolio-template/build",
+    "future": {
+      "unstable_optimizeDeps": false,
+      "v8_passThroughRequests": true,
+      "v8_trailingSlashAwareDataRequests": true,
+      "unstable_previewServerPrerendering": false,
+      "v8_middleware": true,
+      "v8_splitRouteModules": true,
+      "v8_viteEnvironmentApi": true
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "root.tsx",
+        "path": ""
+      },
+      "routes/_index": {
+        "id": "routes/_index",
+        "parentId": "root",
+        "file": "routes/_index.tsx",
+        "index": true
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true,
+    "subResourceIntegrity": false,
+    "allowedActionOrigins": false,
+    "unstable_routeConfig": [
+      {
+        "id": "root",
+        "path": "",
+        "file": "root.tsx",
+        "children": [
+          {
+            "id": "routes/_index",
+            "file": "routes/_index.tsx",
+            "index": true
+          }
+        ]
+      }
+    ]
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
