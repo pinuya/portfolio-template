@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { LuArrowDown, LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
 
 import Typewriter from "~/components/fancy/text/typewriter";
+import { HeroScene } from "~/components/three/hero-scene";
 import { Button } from "~/components/ui/button";
 import { siteConfig } from "~/config/site";
 
@@ -23,7 +24,6 @@ export function Hero() {
       id="top"
       className="relative flex min-h-[92svh] items-center justify-center overflow-hidden"
     >
-   
       <div
         aria-hidden
         className="bg-dot-grid mask-radial-fade pointer-events-none absolute inset-0"
@@ -32,6 +32,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/3 h-[420px] w-[min(680px,90vw)] -translate-x-1/2 -translate-y-1/2 animate-pulse-slow rounded-full bg-glow/25 blur-[120px]"
       />
+      <HeroScene className="mask-fade-edges animate-fade-in" />
 
       <div className="container relative z-10 flex flex-col items-center pt-16 text-center">
         <div className="mb-8 inline-flex animate-fade-up items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur-sm">

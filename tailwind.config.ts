@@ -60,6 +60,10 @@ export default {
           from: { opacity: "0", transform: "translateY(12px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
         "pulse-slow": {
           "0%, 100%": { opacity: "0.35" },
           "50%": { opacity: "0.6" },
@@ -67,6 +71,7 @@ export default {
       },
       animation: {
         "fade-up": "fade-up 0.6s ease-out both",
+        "fade-in": "fade-in 1.6s ease-out both",
         "pulse-slow": "pulse-slow 8s ease-in-out infinite",
       },
     },

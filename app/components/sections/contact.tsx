@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { LuArrowUpRight, LuGithub, LuLinkedin } from "react-icons/lu";
 
 import { Reveal } from "~/components/reveal";
+import { ContactScene } from "~/components/three/contact-scene";
 import { Button } from "~/components/ui/button";
 import { siteConfig } from "~/config/site";
 
@@ -15,6 +16,7 @@ export function Contact() {
           aria-hidden
           className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[min(560px,90%)] -translate-x-1/2 rounded-full bg-glow/20 blur-[100px]"
         />
+        <ContactScene className="opacity-30 dark:opacity-40" />
 
         <div className="relative">
           <p className="mb-3 text-sm font-medium uppercase tracking-[0.18em] text-primary">
